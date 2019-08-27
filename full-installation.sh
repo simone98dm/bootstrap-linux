@@ -129,6 +129,11 @@ sudo apt install -y tcpflow
 BLUE "Installing dotnet"
 sudo apt install -y dotnet-sdk-2.2
 
+BLUE "Installing font-firacode"
+sudo apt install -y font-firacode
+
+GREEN "Installing using SNAP"
+
 BLUE "Installing postman"
 sudo snap install postman
 
