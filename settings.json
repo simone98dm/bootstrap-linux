@@ -1,0 +1,10 @@
+{
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 5000,
+    "editor.tabSize": 2,
+    "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontLigatures": true,
+    "editor.cursorBlinking": "smooth",
+    "workbench.editor.highlightModifiedTabs": true,
+    "editor.cursorSmoothCaretAnimation": true
+}
