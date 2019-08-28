@@ -57,7 +57,7 @@ GREEN "Installing using APT"
 BLUE "Installing git..."
 sudo apt install -y git
 
-BLUE "Installing Sublime Text..." # according to https://www.sublimetext.com/docs/3/linux_repositories.html-
+BLUE "Installing Sublime Text..."
 sudo apt install -y sublime-text
 
 BLUE "Installing tilix..."
@@ -104,9 +104,6 @@ sudo apt install -y qrencode
 
 BLUE "Installing pdfcrack..."
 sudo apt install -y pdfcrack
-
-BLUE "Installing Virtualbox..."
-sudo apt install -y virtualbox-qt
 
 BLUE "Installing fcrackzip..."
 sudo apt install -y fcrackzip
@@ -175,7 +172,6 @@ sudo chsh -s $(which zsh)
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions --depth 3
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions --depth 3
 exit
-
 
 
 GREEN "Installing NPM packages"
