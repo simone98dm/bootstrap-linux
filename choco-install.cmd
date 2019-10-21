@@ -41,3 +41,4 @@ choco install jetbrainstoolbox -y
 choco install typora -y
 choco install sublimemerge -y
 choco install fscapture -y
+choco install dnspy -y
