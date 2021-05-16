@@ -10,12 +10,12 @@ $ git clone -b linux --depth 1 --single-branch https://github.com/simone98dm/boo
 $ cd bootstrap/
 $ chmod +x *.sh
 $ sudo ./full-installation.sh
-$ ./vscode-extesions.sh
 ```
 ##### Windows
 ```powershell
 $ git clone -b win --depth 1 --single-branch https://github.com/simone98dm/bootstrap.git
 $ cd bootstrap/
 $ *doble click on .cmd*
-$ *use the git bash console to run the .sh file with vscode extensions*
 ```
+##### VsCode Extensions
+Since windows has wsl configured, just double click on the .sh vscode extension file and wait
