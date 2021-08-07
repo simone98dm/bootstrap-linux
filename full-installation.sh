@@ -36,11 +36,6 @@ sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-relea
 YELLOW "Downloading dependency..."
 GREEN "Downloading chrome"
 wget -O latest-chrome.deb "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
-GREEN "Downloading vscode"
-wget -O latest-vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
-GREEN "Downloading sublime"
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 GREEN "Downloading dotnet-core"
 wget -O packages-microsoft-prod.deb https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb 
 
