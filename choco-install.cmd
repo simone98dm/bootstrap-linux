@@ -12,7 +12,6 @@ choco install obs-studio -y
 choco install vlc -y
 choco install teamviewer -y
 choco install protonvpn -y
-choco install spotify -y
 choco install everything -y
 choco install etcher -y
 choco install typora -y
@@ -42,3 +41,4 @@ choco install origin -y
 choco install ubisoft-connect -y
 choco install epicgameslauncher -y
 choco install steam-client -y
+choco install spotify -y
