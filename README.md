@@ -46,6 +46,7 @@ Since windows has wsl configured, just double click on the .sh vscode extension 
 - [X] adobereader
 - [X] burp-suite-free-edition
 - [X] curl
+- [X] WinMerge
 - [X] git.install
 - [X] nmap
 - [X] nodejs.install
