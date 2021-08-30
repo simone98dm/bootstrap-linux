@@ -22,6 +22,7 @@ choco install win32diskimager.install -y
 choco install adobereader -y
 choco install burp-suite-free-edition -y
 choco install curl -y
+choco install winmerge -y
 choco install git.install -y
 choco install nmap -y
 choco install nodejs.install -y
