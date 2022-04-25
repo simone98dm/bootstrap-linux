@@ -6,7 +6,7 @@ BLUE=`tput bold && tput setaf 4`
 NC=`tput sgr0`
 
 function RED(){
-	echo -e "${RED}[-] ${1}${NC}"
+	echo -e "${RED}[X] ${1}${NC}"
 }
 
 function GREEN(){
@@ -21,102 +21,75 @@ function BLUE(){
 	echo -e "${BLUE}[*] ${1}${NC}"
 }
 
-if [ $UID -ne 0 ]
-then
-	RED "You must run this script as root!" && echo
-	exit
-fi
+function RUNCMD(){
+    if [ $2 ]
+    then
+        /bin/bash -c "${1} > /dev/null"
+    else
+        /bin/bash -c "${1}"
+    fi
+}
 
 BLUE "Running update and upgrade"
-sudo apt-get update > /dev/null;
-sudo apt-get upgrade -y > /dev/null;
-GREEN "Installign apt-transport-https ca-certificates curl gnupg lsb-release wget"
-sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release wget > /dev/null;
+RUNCMD "sudo apt update -y" true
+RUNCMD "sudo apt upgrade -y"
+RUNCMD "sudo sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release wget"
+#----------------------------------------------
 
-YELLOW "Downloading dependency..."
-GREEN "Downloading chrome"
-wget -O latest-chrome.deb "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
-GREEN "Downloading dotnet-core"
-wget -O packages-microsoft-prod.deb https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb 
+BLUE "Add APT repositories"
 
-YELLOW "Adding APT source.lst entries"
-GREEN "Adding docker dep"
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-key fingerprint 0EBFCD88 -y
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" -y > /dev/null
+GREEN "Add Docker CE"
+RUNCMD "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -"
+RUNCMD "sudo add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable\""
+RUNCMD "wget https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb"
+RUNCMD "sudo dpkg -i packages-microsoft-prod.deb"
+RUNCMD "rm packages-microsoft-prod.deb"
+RUNCMD "sudo add-apt-repository \"deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main\""
+RUNCMD "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash"
+#----------------------------------------------
 
-YELLOW "Installing APT packages"
-GREEN "Installing chrome packages"
-sudo dpkg -i latest-chrome.deb > /dev/null;
-GREEN "Installing vscode packages"
-sudo dpkg -i latest-vscode.deb > /dev/null;
-GREEN "Installing microsoft packages"
-sudo dpkg -i packages-microsoft-prod.deb > /dev/null;
-BLUE "Runnning update"
-sudo apt-get update > /dev/null;
-GREEN "Installing dotnet-sdk"
-sudo apt-get install -y dotnet-sdk-5.0 aspnetcore-runtime-5.0 > /dev/null;
-GREEN "Installing sublime-text"
-sudo apt-get install -y sublime-text > /dev/null;
+BLUE "Installing packages"
+GREEN "Downloading and installing Google Chrome"
+RUNCMD "wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+RUNCMD "sudo dpkg -i google-chrome-stable_current_amd64.deb"
+GREEN "Installing docker"
+RUNCMD "sudo apt install docker-ce docker-ce-cli containerd.io"
+
+GREEN "Downloading DOTNET CORE"
+RUNCMD "sudo apt install -y dotnet-sdk-6.0"
 GREEN "Installing htop"
-sudo apt-get install -y htop > /dev/null;
-GREEN "Installing nodejs"
-sudo apt-get install -y nodejs > /dev/null;
-GREEN "Installing npm"
-sudo apt-get install -y npm > /dev/null;
+RUNCMD "sudo apt install htop -y" true
 GREEN "Installing git"
-sudo apt-get install -y git > /dev/null;
+RUNCMD "sudo apt install git -y" true
 GREEN "Installing nmap"
-sudo apt-get install -y nmap > /dev/null;
-GREEN "Installing docker-ce"
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose > /dev/null;
+RUNCMD "sudo apt install nmap -y" true
 GREEN "Installing binwalk"
-sudo apt-get install -y binwalk > /dev/null;
+RUNCMD "sudo apt install binwalk -y" true
 GREEN "Installing hexedit"
-sudo apt-get install -y hexedit > /dev/null;
+RUNCMD "sudo apt install hexedit -y" true
 GREEN "Installing ffmpeg"
-sudo apt-get install -y ffmpeg > /dev/null;
-GREEN "Installing cmake"
-sudo apt-get install -y cmake > /dev/null;
-GREEN "Installing net-tools"
-sudo apt-get install -y net-tools > /dev/null;
+RUNCMD "sudo apt install ffmpeg -y" true
 GREEN "Installing jq"
-sudo apt-get install -y jq > /dev/null;
-GREEN "Installing xclip"
-sudo apt-get install -y xclip > /dev/null;
-GREEN "Installing locate"
-sudo apt-get install -y locate > /dev/null;
+RUNCMD "sudo apt install jq -y" true
+GREEN "Installing micro"
+RUNCMD "sudo apt install micro -y" true
 GREEN "Installing vlc"
-sudo apt-get install -y vlc > /dev/null;
-GREEN "Installing openjdk"
-sudo apt-get install -y openjdk-11-jre openjdk-11-jdk > /dev/null;
-GREEN "Installing gnome-tweak"
-sudo apt-get install -y gnome-tweak-tool > /dev/null;
-YELLOW "Installing SNAP packages"
-GREEN "Installing postman"
-sudo snap install postman > /dev/null;
-GREEN "Installing telegram"
-sudo snap install telegram-desktop > /dev/null;
-GREEN "Installing spotify"
-sudo snap install spotify > /dev/null;
+RUNCMD "sudo apt install vlc -y" true
+GREEN "Installing gnome-tweak-tool"
+RUNCMD "sudo apt install gnome-tweak-tool -y" true
+GREEN "Installing net-tools"
+RUNCMD "sudo apt install net-tools -y" true
+GREEN "Installing openjdk-11-jre openjdk-11-jdk"
+RUNCMD "sudo apt install openjdk-11-jre openjdk-11-jdk -y" true
 
-YELLOW "Installing NPM packages"
-GREEN "Installing angular"
-sudo npm install -g @angular/cli > /dev/null;
-GREEN "Installing typescript"
-sudo npm install -g typescript > /dev/null;
-GREEN "Installing nodemon"
-sudo npm install -g nodemon > /dev/null;
-GREEN "Installing express-generator"
-sudo npm install -g express-generator > /dev/null;
-GREEN "Installing pm2"
-sudo npm install -g pm2 > /dev/null;
+GREEN "Installing Spotify"
+RUNCMD "sudo snap install spotify"
+GREEN "Installing Bitwarden"
+RUNCMD "sudo snap install bitwarden"
+GREEN "Installing Postman"
+RUNCMD "sudo snap install postman"
+GREEN "Installing Telegram"
+RUNCMD "sudo snap install telegram-desktop"
 
-YELLOW "Installing ZSH"
-sudo apt install -y zsh
-curl -Lo install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-sh install.sh
-sudo chsh -s $(which zsh)
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions --depth 3
-
-exit
+GREEN "Installing oh-my-zsh"
+RUNCMD "sh -c \"$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\""
