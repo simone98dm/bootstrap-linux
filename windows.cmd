@@ -11,20 +11,18 @@ choco install rufus -y
 choco install obs-studio -y
 choco install vlc -y
 choco install teamviewer -y
-choco install protonvpn -y
 choco install everything -y
 choco install etcher -y
-choco install typora -y
-choco install fscapture -y
 choco install windirstat -y
 choco install discord.install -y
 choco install win32diskimager.install -y
 choco install adobereader -y
 choco install burp-suite-free-edition -y
 choco install curl -y
+choco install mp3tag -y
 choco install winmerge -y
+choco install nordvpn -y
 choco install git.install -y
-choco install nmap -y
 choco install nodejs.install -y
 choco install postman -y
 choco install github-desktop -y
@@ -43,3 +41,4 @@ choco install ubisoft-connect -y
 choco install epicgameslauncher -y
 choco install steam-client -y
 choco install spotify -y
+choco install ea-app -y
