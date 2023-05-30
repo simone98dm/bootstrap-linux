@@ -42,3 +42,4 @@ choco install epicgameslauncher -y
 choco install steam-client -y
 choco install spotify -y
 choco install ea-app -y
+choco install angryip -y
