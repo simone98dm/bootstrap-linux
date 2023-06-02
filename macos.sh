@@ -13,6 +13,7 @@ brew install --cask keepassxc
 brew install --cask postman
 brew install --cask font-hack-nerd-font
 brew install --cask macfuse
+brew install --cask mucommander
 
 brew install act
 brew install gource
