@@ -15,6 +15,8 @@ brew install --cask font-hack-nerd-font
 brew install --cask macfuse
 brew install --cask mucommander
 brew install --cask visual-studio-code
+brew install --cask raspberry-pi-imager
+brew install --cask mucommander
 
 brew install gource
 brew install ffmpeg
