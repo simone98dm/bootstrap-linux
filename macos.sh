@@ -14,8 +14,8 @@ brew install --cask postman
 brew install --cask font-hack-nerd-font
 brew install --cask macfuse
 brew install --cask mucommander
+brew install --cask visual-studio-code
 
-brew install act
 brew install gource
 brew install ffmpeg
 brew install imagemagick
