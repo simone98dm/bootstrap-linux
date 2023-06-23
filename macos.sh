@@ -19,6 +19,7 @@ brew install --cask visual-studio-code
 brew install --cask raspberry-pi-imager
 brew install --cask mucommander
 brew install --cask app-cleaner
+brew install --cask docker
 
 brew install gource
 brew install ffmpeg
@@ -28,10 +29,10 @@ brew install micro
 brew install youtube-dl
 brew install zsh
 brew install ffmpeg
-brew install lsd
 brew install tokei
 brew install wget
 brew install nvm
+brew install exa
 
 brew tap homebrew/cask-fonts
 brew install font-hack-nerd-font
@@ -42,3 +43,5 @@ mkdir -p ~/tmp && cd tmp/
 git clone git@github.com:oskarkrawczyk/honukai-iterm-zsh.git
 
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+echo "alias ls=\"exa --icons -lh\"" >> ~/.zshrc
