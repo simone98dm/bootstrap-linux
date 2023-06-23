@@ -18,6 +18,7 @@ brew install --cask mucommander
 brew install --cask visual-studio-code
 brew install --cask raspberry-pi-imager
 brew install --cask mucommander
+brew install --cask app-cleaner
 
 brew install gource
 brew install ffmpeg
@@ -30,6 +31,7 @@ brew install ffmpeg
 brew install lsd
 brew install tokei
 brew install wget
+brew install nvm
 
 brew tap homebrew/cask-fonts
 brew install font-hack-nerd-font
@@ -39,3 +41,4 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 mkdir -p ~/tmp && cd tmp/
 git clone git@github.com:oskarkrawczyk/honukai-iterm-zsh.git
 
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
