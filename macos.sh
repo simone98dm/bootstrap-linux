@@ -1,5 +1,7 @@
 #!/bin/bash
 
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 brew install --cask discord
 brew install --cask burp-suite
 brew install --cask iterm2
@@ -11,7 +13,6 @@ brew install --cask beekeeper-studio
 brew install --cask github
 brew install --cask keepassxc
 brew install --cask postman
-brew install --cask font-hack-nerd-font
 brew install --cask macfuse
 brew install --cask mucommander
 brew install --cask visual-studio-code
@@ -27,3 +28,14 @@ brew install youtube-dl
 brew install zsh
 brew install ffmpeg
 brew install lsd
+brew install tokei
+brew install wget
+
+brew tap homebrew/cask-fonts
+brew install font-hack-nerd-font
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && chsh -s $(which zsh)
+
+mkdir -p ~/tmp && cd tmp/
+git clone git@github.com:oskarkrawczyk/honukai-iterm-zsh.git
+
